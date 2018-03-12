@@ -11,6 +11,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r}
 library(ggplot2)
+install.packages("ggthemes")
+library(ggthemes)
 ```
 
 ```{r}
@@ -36,4 +38,38 @@ ggplot (mpg, aes(x = hwy, y = cty, size = class, color = fl)) +
 ```{r}
 ggplot (mpg, aes(x = displ, y = hwy)) + 
   geom_point(alpha = 0.4, color = "blue")
+```
+
+```{r}
+ggplot (mpg, aes(x = displ, y = hwy, color = class)) + 
+  geom_point() + 
+  facet_wrap( ~ manufacturer) +
+  theme_bw()
+
+```
+
+```{r}
+ggplot (mpg, aes(x = displ, y = hwy)) + 
+  geom_point() + 
+  facet_wrap( ~ class) +
+  theme_bw()
+
+```
+
+```{r}
+ggplot (mpg, aes(x = drv, y = hwy)) + 
+  geom_violin()
+```
+
+```{r}
+ggplot (mpg, aes(x = displ, y = hwy)) + 
+  geom_point() +
+  geom_smooth() + labs(title = "Relationship between engine size and highway mileage (mpg)", x = "Engine size (miles per gallon)", y = "Highway milage (miles per gallon)") +
+  theme_bw()
+```
+
+```{r}
+ggplot (mpg, aes(x = fl, fill = class)) + 
+  geom_bar(position = "dodge") +
+  theme_bw()
 ```
