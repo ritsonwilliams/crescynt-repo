@@ -10,7 +10,30 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Learning GGPlot
 
 ```{r}
+library(ggplot2)
+```
+
+```{r}
 myplot <- ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + 
-  geom_point()
+  geom_point(alpha = 0.4)
 myplot
+```
+
+
+
+```{r}
+ggplot (mpg, aes(x = displ, y = hwy, color = class)) + 
+  geom_point()
+```
+
+make a scatterplot of `hwy` vs `cty` with different sized points representing each `class` and different colors for each fuel type `fl`
+
+```{r}
+ggplot (mpg, aes(x = hwy, y = cty, size = class, color = fl)) + 
+  geom_point()
+```
+
+```{r}
+ggplot (mpg, aes(x = displ, y = hwy)) + 
+  geom_point(alpha = 0.4, color = "blue")
 ```
