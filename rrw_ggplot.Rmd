@@ -1,0 +1,16 @@
+---
+title: "rrw"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Learning GGPlot
+
+```{r}
+myplot <- ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + 
+  geom_point()
+myplot
+```
